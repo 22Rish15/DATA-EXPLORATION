@@ -117,7 +117,7 @@ select *, (total_vaccinated/population)*100
 from #PopVsVac
 order by location, date
 
--- view
+-- Create view to store data for later visualization
 
 create view PopulationVsTotal_Vacccinations as
 select cd.continent, cd.location,cd.date,population, new_vaccinations,

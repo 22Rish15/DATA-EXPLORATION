@@ -5,16 +5,22 @@ select location,date,population, total_cases, new_cases, total_deaths
 from CovidDeaths
 order by 1,2
 
+-- DeathPercentage
+	
 select location,date, total_cases, total_deaths, (total_deaths/total_cases)*100 DeathPercentage
 from CovidDeaths
 where location='India'
 order by 2
 
+-- PercentPopuationInfected
+	
 select location, population, max(total_cases) HigestInfectedCount, max((total_cases/population)*100) PercentPopuationInfected
 from CovidDeaths
 group by location, population
 order by 4 desc
 
+-- TotalDeathCount
+	
 select location, population, max(cast(total_deaths as int)) TotalDeathCount
 from CovidDeaths
 group by location, population
